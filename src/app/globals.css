@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 250, 249, 246; /* Ivory */
+  --background-start-rgb: 10, 10, 10; /* Black */
+  --background-end-rgb: 0, 0, 0;
+}
+
+@layer base {
+  body {
+    background: #0A0A0A;
+    color: #FAF9F6;
+  }
+}
+
+@layer components {
+  .gold-gradient {
+    background: linear-gradient(135deg, #F7E7CE 0%, #D4AF37 50%, #996515 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gold-border {
+    border-image: linear-gradient(to bottom right, #D4AF37, #996515) 1;
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  .premium-blur {
+    backdrop-filter: blur(8px);
+    background: rgba(18, 18, 18, 0.6);
+  }
+
+  .btn-premium {
+    @apply relative px-8 py-4 overflow-hidden border border-gold text-gold hover:text-black font-medium tracking-wider transition-all duration-500 uppercase text-xs;
+  }
+
+  .btn-premium::before {
+    content: '';
+    @apply absolute top-0 left-0 w-0 h-full bg-gold transition-all duration-500 -z-10;
+  }
+
+  .btn-premium:hover::before {
+    @apply w-full;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl md:text-5xl lg:text-6xl mb-6 tracking-tight;
+  }
+
+  .eyebrow {
+    @apply text-gold uppercase tracking-[0.25em] text-[10px] md:text-xs mb-4 font-bold;
+  }
+  
+  .luxury-card {
+    @apply bg-matte border border-white/5 hover:border-gold/30 transition-colors duration-500 p-8 rounded-sm;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Ambient Particles Placeholder or BG Movement */
+@keyframes ambient-glow {
+  0% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+  100% { opacity: 0.3; transform: scale(1); }
+}
+
+.ambient-circle {
+  @apply fixed rounded-full pointer-events-none mix-blend-screen blur-[120px] opacity-20 -z-20;
+  background: radial-gradient(circle, #D4AF37 0%, transparent 70%);
+  animation: ambient-glow 10s infinite ease-in-out;
+}
