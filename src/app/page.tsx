@@ -6,7 +6,6 @@ import { Hero } from "@/components/Hero";
 import { BrandStory } from "@/components/BrandStory";
 import { CultivationExcellence } from "@/components/CultivationExcellence";
 import { Gallery } from "@/components/Gallery";
-import { QualityStandards } from "@/components/QualityStandards";
 import { Location } from "@/components/Location";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
